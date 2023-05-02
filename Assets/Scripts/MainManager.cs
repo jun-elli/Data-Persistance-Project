@@ -14,6 +14,7 @@ public class MainManager : MonoBehaviour
     public Text ScoreText;
     public GameObject GameOverText;
     public Text bestScoreText;
+    public Button backButton;
 
     private bool m_Started = false;
     private int m_Points;
@@ -38,8 +39,15 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
-        // set best score if any
-        bestScoreText.text = $"Best score : {DataManager.Instance.PlayerName} {DataManager.Instance.Score}";
+        // get best score if any
+        if (DataManager.Instance.Score < 1)
+        {
+            bestScoreText.text = "No best score yet!";
+        }
+        else
+        {
+            bestScoreText.text = $"Best score : {DataManager.Instance.BestPlayerName} {DataManager.Instance.Score}";
+        }
     }
 
     private void Update()
@@ -77,6 +85,12 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         SetBestScore(m_Points);
         GameOverText.SetActive(true);
+        backButton.gameObject.SetActive(true);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void SetBestScore(int score)
@@ -85,7 +99,9 @@ public class MainManager : MonoBehaviour
         if (score > DataManager.Instance.Score)
         {
             DataManager.Instance.Score = score;
-            bestScoreText.text = $"Best score : {DataManager.Instance.PlayerName} {score}";
+            DataManager.Instance.BestPlayerName = DataManager.Instance.PlayerName;
+            bestScoreText.text = $"Best score : {DataManager.Instance.BestPlayerName} {score}";
+            DataManager.Instance.SaveBestScore();
         }
     }
 }

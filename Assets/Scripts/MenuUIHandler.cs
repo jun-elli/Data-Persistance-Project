@@ -17,7 +17,7 @@ public class MenuUIHandler : MonoBehaviour
     {
         scoreText.text = DataManager.Instance.Score < 1
             ? "No score registered yet"
-            : $"Best score : {DataManager.Instance.PlayerName} {DataManager.Instance.Score}";
+            : $"Best score : {DataManager.Instance.BestPlayerName} {DataManager.Instance.Score}";
     }
 
     public void StartGame()
