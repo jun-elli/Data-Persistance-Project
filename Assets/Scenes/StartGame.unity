@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 343119258}
   - component: {fileID: 343119257}
   m_Layer: 5
-  m_Name: BestScoreText
+  m_Name: HighestScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jun has best score of '
+  m_text: No best score
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -1117,6 +1117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1713ddaa72065c58abc05e7a6692ba3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameInput: {fileID: 22547792}
+  scoreText: {fileID: 343119257}
 --- !u!4 &1278143291
 Transform:
   m_ObjectHideFlags: 0
@@ -1794,6 +1796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1775349279}
+  - component: {fileID: 1775349280}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -1816,6 +1819,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1775349280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775349278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b217988135623a5fb14b64d68d9bd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerName: 
+  HighestScore: 
 --- !u!1 &1872152722
 GameObject:
   m_ObjectHideFlags: 0
